@@ -1,0 +1,16 @@
+TextWidgetClass RDZ_Marker
+{
+	ignorepointer 1
+	position 0 0
+	size 240 24
+	hexactpos 1
+	vexactpos 1
+	hexactsize 1
+	vexactsize 1
+	text ""
+	font "gui/fonts/Metron-Bold58"
+	"exact text" 1
+	"exact text size" 16
+	"text halign" center
+	"text valign" center
+}

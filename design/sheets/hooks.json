@@ -1,0 +1,176 @@
+{
+  "sheet": "hooks",
+  "purpose": "Every place the mashup plugs into DayZ's own scripts. The preflight checks each hook's file really contains the modded class and method, and each was looked up in Bohemia's published scripts (DayZ-Script-Diff, build 1.29.163709).",
+  "columns": {
+    "id": {
+      "type": "id"
+    },
+    "dayz_class": {
+      "type": "string"
+    },
+    "method": {
+      "type": "string"
+    },
+    "hook_kind": {
+      "type": "enum:modded|subclass",
+      "doc": "modded = 'modded class <dayz_class>' changes it everywhere; subclass = our own class extending it."
+    },
+    "file": {
+      "type": "string",
+      "doc": "Path under mod/RivalsDayZ/scripts."
+    },
+    "purpose": {
+      "type": "string"
+    },
+    "vanilla_ref": {
+      "type": "string",
+      "doc": "Where the method is defined in DayZ-Script-Diff."
+    }
+  },
+  "rows": [
+    {
+      "id": "hk_cmd_handler",
+      "dayz_class": "PlayerBase",
+      "method": "ModCommandHandlerInside",
+      "hook_kind": "modded",
+      "file": "4_World/RivalsDayZ/RDZ_PlayerCommands.c",
+      "purpose": "Starts and keeps the web command (swing, flight, crawl, zip); jump at a tall wall starts a crawl.",
+      "vanilla_ref": "4_world/entities/dayzplayerimplement.c ModCommandHandlerInside"
+    },
+    {
+      "id": "hk_input_udt",
+      "dayz_class": "PlayerBase",
+      "method": "OnInputUserDataProcess",
+      "hook_kind": "modded",
+      "file": "4_World/RivalsDayZ/RDZ_PlayerBase.c",
+      "purpose": "Server receives ability requests sent by the owning client.",
+      "vanilla_ref": "4_world/entities/manbase/playerbase.c OnInputUserDataProcess"
+    },
+    {
+      "id": "hk_sync_juncture",
+      "dayz_class": "PlayerBase",
+      "method": "OnSyncJuncture",
+      "hook_kind": "modded",
+      "file": "4_World/RivalsDayZ/RDZ_PlayerBase.c",
+      "purpose": "Server and owning client start a swing or zip on the same simulation step.",
+      "vanilla_ref": "4_world/entities/manbase/playerbase.c OnSyncJuncture"
+    },
+    {
+      "id": "hk_player_init",
+      "dayz_class": "PlayerBase",
+      "method": "Init",
+      "hook_kind": "modded",
+      "file": "4_World/RivalsDayZ/RDZ_PlayerBase.c",
+      "purpose": "Registers the synced power mask.",
+      "vanilla_ref": "4_world/entities/manbase/playerbase.c Init"
+    },
+    {
+      "id": "hk_player_vars",
+      "dayz_class": "PlayerBase",
+      "method": "OnVariablesSynchronized",
+      "hook_kind": "modded",
+      "file": "4_World/RivalsDayZ/RDZ_PlayerBase.c",
+      "purpose": "Clients learn which powers a player has.",
+      "vanilla_ref": "4_world/entities/manbase/playerbase.c OnVariablesSynchronized"
+    },
+    {
+      "id": "hk_item_attach",
+      "dayz_class": "PlayerBase",
+      "method": "EEItemAttached",
+      "hook_kind": "modded",
+      "file": "4_World/RivalsDayZ/RDZ_PlayerBase.c",
+      "purpose": "Wearing a hero item grants its powers.",
+      "vanilla_ref": "4_world/entities/manbase/playerbase.c EEItemAttached"
+    },
+    {
+      "id": "hk_item_detach",
+      "dayz_class": "PlayerBase",
+      "method": "EEItemDetached",
+      "hook_kind": "modded",
+      "file": "4_World/RivalsDayZ/RDZ_PlayerBase.c",
+      "purpose": "Taking it off removes them.",
+      "vanilla_ref": "4_world/entities/manbase/playerbase.c EEItemDetached"
+    },
+    {
+      "id": "hk_player_hit",
+      "dayz_class": "PlayerBase",
+      "method": "EEHitBy",
+      "hook_kind": "modded",
+      "file": "4_World/RivalsDayZ/RDZ_PlayerBase.c",
+      "purpose": "Rogue's drain and Mimicry when a player is hit in melee.",
+      "vanilla_ref": "4_world/entities/manbase/playerbase.c EEHitBy"
+    },
+    {
+      "id": "hk_player_rpc",
+      "dayz_class": "PlayerBase",
+      "method": "OnRPC",
+      "hook_kind": "modded",
+      "file": "4_World/RivalsDayZ/RDZ_PlayerBase.c",
+      "purpose": "Cooldowns to the owner, voice lines and effects to everyone, spawn-menu requests to the server.",
+      "vanilla_ref": "4_world/entities/manbase/playerbase.c OnRPC"
+    },
+    {
+      "id": "hk_zombie_hit",
+      "dayz_class": "ZombieBase",
+      "method": "EEHitBy",
+      "hook_kind": "modded",
+      "file": "4_World/RivalsDayZ/RDZ_Zombie.c",
+      "purpose": "Rogue draining an AI hero steals its powers; Rogue's drain heals on infected too.",
+      "vanilla_ref": "4_world/entities/creatures/infected/zombiebase.c EEHitBy"
+    },
+    {
+      "id": "hk_zombie_cmd",
+      "dayz_class": "ZombieBase",
+      "method": "ModCommandHandlerBefore",
+      "hook_kind": "modded",
+      "file": "4_World/RivalsDayZ/RDZ_Zombie.c",
+      "purpose": "Holds webbed infected in place and runs the AI Spider-Man's swing hops.",
+      "vanilla_ref": "4_world/entities/creatures/infected/zombiebase.c CommandHandler -> ModCommandHandlerBefore"
+    },
+    {
+      "id": "hk_mission_gameplay",
+      "dayz_class": "MissionGameplay",
+      "method": "OnUpdate",
+      "hook_kind": "modded",
+      "file": "5_Mission/RivalsDayZ/RDZ_MissionGameplay.c",
+      "purpose": "Reads the mashup keys, draws the HUD, opens the spawn menu.",
+      "vanilla_ref": "5_mission/mission/missiongameplay.c OnUpdate"
+    },
+    {
+      "id": "hk_mission_server_spawn",
+      "dayz_class": "MissionServer",
+      "method": "CreateCharacter",
+      "hook_kind": "modded",
+      "file": "5_Mission/RivalsDayZ/RDZ_MissionServer.c",
+      "purpose": "Players on a hosted game start on a Chernogorsk rooftop.",
+      "vanilla_ref": "5_mission/mission/missionserver.c CreateCharacter"
+    },
+    {
+      "id": "hk_mission_server_tick",
+      "dayz_class": "MissionServer",
+      "method": "OnUpdate",
+      "hook_kind": "modded",
+      "file": "5_Mission/RivalsDayZ/RDZ_MissionServer.c",
+      "purpose": "Runs the AI heroes and ability timers on a hosted game.",
+      "vanilla_ref": "5_mission/mission/missionserver.c OnUpdate"
+    },
+    {
+      "id": "hk_mission_server_ready",
+      "dayz_class": "MissionServer",
+      "method": "OnClientReadyEvent",
+      "hook_kind": "modded",
+      "file": "5_Mission/RivalsDayZ/RDZ_MissionServer.c",
+      "purpose": "Sends the host's invite line to players and starts the AI heroes when the first player arrives.",
+      "vanilla_ref": "5_mission/mission/missionserver.c OnClientReadyEvent"
+    },
+    {
+      "id": "hk_offline_mission",
+      "dayz_class": "MissionGameplay",
+      "method": "OnInit",
+      "hook_kind": "subclass",
+      "file": "5_Mission/RivalsDayZ/RDZ_OfflineMission.c",
+      "purpose": "Solo hunt: RDZ_OfflineMission (a MissionGameplay) creates the player on the rooftop and runs the server tick in-process.",
+      "vanilla_ref": "5_mission/mission/missiongameplay.c OnInit"
+    }
+  ]
+}

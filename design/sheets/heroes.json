@@ -1,0 +1,36 @@
+{
+  "sheet": "heroes",
+  "purpose": "The two Marvel Rivals heroes the mashup brings into DayZ. Names shown in game come from the player's own Rivals install when found; the fallback is used otherwise.",
+  "columns": {
+    "id": {"type": "id"},
+    "fallback_name": {"type": "string", "doc": "Shown only when the player's Rivals install did not provide the hero's name."},
+    "rivals_match": {"type": "string", "doc": "English hero name the launcher searches for in the Rivals localization files."},
+    "hud_color_argb": {"type": "string", "doc": "HUD accent colour, 0xAARRGGBB."},
+    "power_item": {"type": "ref:items"},
+    "hunter": {"type": "ref:hunters"},
+    "portrait": {"type": "ref:rivals_assets"},
+    "voice_spawn": {"type": "ref:rivals_assets"}
+  },
+  "rows": [
+    {
+      "id": "spiderman",
+      "fallback_name": "Spider-Man",
+      "rivals_match": "Spider-Man",
+      "hud_color_argb": "0xFFD22630",
+      "power_item": "RDZ_WebShooters",
+      "hunter": "hunter_spiderman",
+      "portrait": "img_spiderman_portrait",
+      "voice_spawn": "vo_spiderman_spawn"
+    },
+    {
+      "id": "rogue",
+      "fallback_name": "Rogue",
+      "rivals_match": "Rogue",
+      "hud_color_argb": "0xFF2E8B3A",
+      "power_item": "RDZ_RogueGloves",
+      "hunter": "hunter_rogue",
+      "portrait": "img_rogue_portrait",
+      "voice_spawn": "vo_rogue_spawn"
+    }
+  ]
+}

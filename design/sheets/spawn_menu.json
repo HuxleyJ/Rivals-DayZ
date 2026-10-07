@@ -1,0 +1,23 @@
+{
+  "sheet": "spawn_menu",
+  "purpose": "Buttons in the spawn menu (default key J). Each row is one button.",
+  "columns": {
+    "id": {"type": "id"},
+    "order": {"type": "int", "unique": true},
+    "label": {"type": "string"},
+    "action": {"type": "enum:give_kit|spawn_hunter|clear_hunters"},
+    "hero": {"type": "ref:heroes", "allow_na": true},
+    "extra_items": {"type": "list:string", "allow_empty": true, "doc": "Hero-coloured DayZ clothes added with the kit; any that do not exist are skipped."}
+  },
+  "rows": [
+    {"id": "menu_kit_spiderman", "order": 1, "label": "Spider-Man kit", "action": "give_kit", "hero": "spiderman",
+     "extra_items": ["TrackSuitJacket_Red", "TrackSuitPants_Blue"],
+     "_unverified": {"extra_items": "Clothing config class names are not in the script source; missing ones are skipped and logged."}},
+    {"id": "menu_kit_rogue", "order": 2, "label": "Rogue kit", "action": "give_kit", "hero": "rogue",
+     "extra_items": ["TrackSuitJacket_Green", "TrackSuitPants_Green"],
+     "_unverified": {"extra_items": "Clothing config class names are not in the script source; missing ones are skipped and logged."}},
+    {"id": "menu_hunter_spiderman", "order": 3, "label": "Spawn AI Spider-Man", "action": "spawn_hunter", "hero": "spiderman", "extra_items": []},
+    {"id": "menu_hunter_rogue", "order": 4, "label": "Spawn AI Rogue", "action": "spawn_hunter", "hero": "rogue", "extra_items": []},
+    {"id": "menu_clear", "order": 5, "label": "Remove AI heroes", "action": "clear_hunters", "hero": "n/a", "extra_items": []}
+  ]
+}

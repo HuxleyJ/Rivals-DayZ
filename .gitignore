@@ -1,0 +1,11 @@
+# build output, caches and the signing key (never commit the .biprivatekey)
+build/
+*.biprivatekey
+launcher/**/bin/
+launcher/**/obj/
+launcher/RivalsDayZ.Launcher/Generated.cs
+__pycache__/
+# extracted or decompiled game content never goes in the repo
+RivalsDayZ_Rivals/
+*.usmap
+rivals.aes.txt

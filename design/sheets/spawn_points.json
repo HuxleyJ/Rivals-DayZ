@@ -1,0 +1,61 @@
+{
+  "sheet": "spawn_points",
+  "purpose": "Where players and hunters appear. Rooftops are found at run time by casting rays down onto buildings and taking the highest flat roof.",
+  "columns": {
+    "id": {
+      "type": "id"
+    },
+    "mode": {
+      "type": "enum:settlement_rooftop|near_player_rooftop"
+    },
+    "role": {
+      "type": "enum:player_start|hunter",
+      "doc": "player_start = where players appear (solo and hosted games); hunter = where AI heroes appear."
+    },
+    "settlement": {
+      "type": "string",
+      "allow_na": true,
+      "doc": "Name looked up in CfgWorlds <world> Names at run time."
+    },
+    "fallback_x": {
+      "type": "number",
+      "allow_na": true
+    },
+    "fallback_z": {
+      "type": "number",
+      "allow_na": true
+    },
+    "radius_min_m": {
+      "type": "number"
+    },
+    "radius_max_m": {
+      "type": "number"
+    }
+  },
+  "rows": [
+    {
+      "id": "sp_cherno_rooftop",
+      "mode": "settlement_rooftop",
+      "role": "player_start",
+      "settlement": "Chernogorsk",
+      "fallback_x": 6650,
+      "fallback_z": 2550,
+      "radius_min_m": 0,
+      "radius_max_m": 150,
+      "_unverified": {
+        "fallback_x": "Approximate centre of Chernogorsk from memory; the settlement lookup should replace it. Check in game.",
+        "fallback_z": "As fallback_x."
+      }
+    },
+    {
+      "id": "sp_hunter_near",
+      "mode": "near_player_rooftop",
+      "role": "hunter",
+      "settlement": "n/a",
+      "fallback_x": "n/a",
+      "fallback_z": "n/a",
+      "radius_min_m": 25,
+      "radius_max_m": 70
+    }
+  ]
+}

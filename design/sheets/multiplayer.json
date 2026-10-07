@@ -1,0 +1,149 @@
+{
+  "sheet": "multiplayer",
+  "purpose": "How friends play together: the host's PC runs a DayZ server with the mashup, the launcher opens it to the internet without anyone touching their router, and joiners connect from Melty's join link or an invite code.",
+  "columns": {
+    "id": {
+      "type": "id"
+    },
+    "status": {
+      "type": "enum:in_build|planned"
+    },
+    "value": {
+      "type": "scalar"
+    },
+    "doc": {
+      "type": "string"
+    }
+  },
+  "rows": [
+    {
+      "id": "MAX_PLAYERS",
+      "status": "in_build",
+      "value": 8,
+      "doc": "maxPlayers written to the generated serverDZ.cfg; also recipe.multiplayer.maxPlayers."
+    },
+    {
+      "id": "DEFAULT_PORT",
+      "status": "in_build",
+      "value": 2302,
+      "doc": "Game port when Melty does not pick one ({port})."
+    },
+    {
+      "id": "ADDRESS_LOG",
+      "status": "in_build",
+      "value": "{localappdata}/RivalsDayZ/logs/latest.log",
+      "doc": "File the launcher writes the host address to."
+    },
+    {
+      "id": "ADDRESS_MARKER",
+      "status": "in_build",
+      "value": "Hosting at ",
+      "doc": "Fixed words before the address on that log line."
+    },
+    {
+      "id": "HOST_ENV",
+      "status": "in_build",
+      "value": "RDZ_MODE=host",
+      "doc": "Environment variable that makes Play host a game."
+    },
+    {
+      "id": "PORT_ENV",
+      "status": "in_build",
+      "value": "RDZ_PORT",
+      "doc": "Environment variable carrying Melty's free port."
+    },
+    {
+      "id": "JOIN_ENV",
+      "status": "in_build",
+      "value": "RDZ_JOIN",
+      "doc": "Environment variable carrying the host address or an invite code."
+    },
+    {
+      "id": "INVITE_PREFIX",
+      "status": "in_build",
+      "value": "RDZ",
+      "doc": "Invite codes look like RDZ-XXXX-XXXX-XX and encode the host's public address and port."
+    },
+    {
+      "id": "NAT_UPNP",
+      "status": "in_build",
+      "value": "UPnP IGD AddPortMapping (UDP game port)",
+      "doc": "Most home routers: the launcher opens the port itself and closes it when the host quits.",
+      "_unverified": {
+        "value": "Needs a real home router to test."
+      }
+    },
+    {
+      "id": "NAT_PMP",
+      "status": "in_build",
+      "value": "NAT-PMP UDP mapping via the default gateway",
+      "doc": "Fallback for routers that speak NAT-PMP/PCP instead of UPnP.",
+      "_unverified": {
+        "value": "Needs a real home router to test."
+      }
+    },
+    {
+      "id": "PUBLIC_IP_STUN",
+      "status": "in_build",
+      "value": "stun.l.google.com:19302",
+      "doc": "STUN binding request to learn the public address when the router does not say it, and to spot carrier-grade NAT."
+    },
+    {
+      "id": "NAT_HOLE_PUNCH",
+      "status": "planned",
+      "value": "UDP hole punching through local relays on both PCs",
+      "doc": "For hosts whose router refuses automatic port opening. Needs a rendezvous service; not built yet."
+    },
+    {
+      "id": "SERVER_BATTLEYE",
+      "status": "in_build",
+      "value": 0,
+      "doc": "Private mashup server runs without BattlEye so clients can start DayZ_x64.exe with -filePatching.",
+      "_source": {
+        "value": "serverDZ.cfg reference tables (gameserverkings, xgamingserver) list BattlEye = 0/1"
+      },
+      "_unverified": {
+        "value": "Not in Bohemia's own docs that I could read; confirm the server starts and accepts clients with it."
+      }
+    },
+    {
+      "id": "SERVER_VERIFY_SIGNATURES",
+      "status": "in_build",
+      "value": 2,
+      "doc": "Only supported value; the mod is signed and its .bikey copied into the server's keys folder."
+    },
+    {
+      "id": "SERVER_ALLOW_FILEPATCHING",
+      "status": "in_build",
+      "value": 1,
+      "doc": "Lets clients load the content converted from their own Rivals install (loose files)."
+    },
+    {
+      "id": "SPAWN_MENU_COOLDOWN_S",
+      "status": "in_build",
+      "value": 10,
+      "doc": "Per-player wait between spawn-menu uses on a server."
+    },
+    {
+      "id": "DAYZ_APPID",
+      "status": "in_build",
+      "value": 221100,
+      "doc": "Steam app id of DayZ."
+    },
+    {
+      "id": "DAYZ_SERVER_APPID",
+      "status": "in_build",
+      "value": 223350,
+      "doc": "Steam app id of the free DayZ Server tool the host needs. Steam needs a login that owns DayZ to install it, so the launcher asks Steam to install it once (steam://install/223350)."
+    },
+    {
+      "id": "SIGN_VERSION",
+      "status": "in_build",
+      "value": 3,
+      "doc": "BI signature version for RivalsDayZ.pbo. The signer is checked byte-for-byte against a known-good v3 signature.",
+      "_unverified": {
+        "value": "DayZ servers may hash script files differently from Arma; confirm a hosted server accepts the signed mod (else switch to 2, or sign with DayZ Tools' DSSignFile)."
+      }
+    }
+  ]
+}

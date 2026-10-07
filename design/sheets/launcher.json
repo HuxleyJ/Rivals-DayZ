@@ -1,0 +1,27 @@
+{
+  "sheet": "launcher",
+  "purpose": "What pressing Play does. The launcher (RivalsDayZ.exe in @RivalsDayZ) converts content from the player's Rivals install, then starts DayZ in one of three modes.",
+  "columns": {
+    "id": {"type": "id"},
+    "trigger": {"type": "string"},
+    "exe": {"type": "string"},
+    "args": {"type": "string"},
+    "doc": {"type": "string"}
+  },
+  "rows": [
+    {"id": "step_rivals_content", "trigger": "every Play, skipped when the Rivals build has not changed", "exe": "RivalsDayZ.exe (built in)", "args": "--rivals {game:marvel-rivals}",
+     "doc": "Reads hero/ability text, portraits, icons and voice lines from the player's Rivals install into {game}/RivalsDayZ_Rivals and the DayZ Server folder. Never launches or changes Rivals. Failures leave the mod playable with built-in names."},
+    {"id": "mode_solo", "trigger": "no RDZ_MODE and no RDZ_JOIN", "exe": "DayZ_x64.exe",
+     "args": "-mission=.\\@RivalsDayZ\\Missions\\RivalsDayZ_Hunt.chernarusplus -mod=@RivalsDayZ -filePatching -nosplash -nopause -noBenchmark -doLogs",
+     "doc": "Offline hunt in Chernogorsk; no server and no BattlEye.",
+     "_source": {"args": "Arkensor/DayZCommunityOfflineMode launch .bat uses -mission=.\\Missions\\<name> -nosplash -noPause -noBenchmark -filePatching -doLogs"}},
+    {"id": "mode_host", "trigger": "RDZ_MODE=host", "exe": "DayZServer_x64.exe, then DayZ_x64.exe",
+     "args": "server: -config=serverDZ_rivals.cfg -port={port} -profiles=<localappdata>\\RivalsDayZ\\server -mod=<abs @RivalsDayZ> -filePatching -doLogs -adminLog; client: -connect=127.0.0.1 -port={port} -mod=@RivalsDayZ -filePatching -nosplash -nopause",
+     "doc": "Starts the host's own DayZ server, opens the port, logs 'Hosting at <public ip>:<port>', copies an invite code to the clipboard, then joins it.",
+     "_unverified": {"args": "Server and -connect switches are standard DayZ ones but untested here; confirm on the PC."}},
+    {"id": "mode_join", "trigger": "RDZ_JOIN=<ip:port or invite code>", "exe": "DayZ_x64.exe",
+     "args": "-connect=<ip> -port=<port> -mod=@RivalsDayZ -filePatching -nosplash -nopause",
+     "doc": "Joins a friend's game from Melty's join link or a pasted invite code.",
+     "_unverified": {"args": "Untested here; confirm on the PC with a second player."}}
+  ]
+}

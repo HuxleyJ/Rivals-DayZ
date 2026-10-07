@@ -1,0 +1,17 @@
+{
+  "_status": "DRAFT - written without access to Melty (melty.gg is blocked from the build environment). Must pass inspect_package, validate_recipe and one_click_check before it is used.",
+  "games": [
+    { "slug": "dayz", "role": "primary" },
+    { "slug": "marvel-rivals", "role": "companion" }
+  ],
+  "components": [
+    { "fileName": "RivalsDayZ-*.zip", "destination": "{game}", "contents": "@RivalsDayZ/" }
+  ],
+  "launch": {
+    "path": "{game}/@RivalsDayZ/RivalsDayZ.exe",
+    "args": ["--dayz", "{game}", "--rivals", "{game:marvel-rivals}"]
+  },
+  "multiplayer": {
+    "maxPlayers": 8
+  }
+}

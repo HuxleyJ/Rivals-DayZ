@@ -1,0 +1,79 @@
+{
+  "sheet": "items",
+  "purpose": "The DayZ items that carry a hero's powers. Wearing one in the gloves slot grants the listed abilities. Each row generates one config class and one power-mask entry.",
+  "columns": {
+    "id": {
+      "type": "id",
+      "doc": "DayZ class name."
+    },
+    "hero": {
+      "type": "ref:heroes"
+    },
+    "base_class": {
+      "type": "string",
+      "doc": "Vanilla DayZ class inherited for model, slot and textures."
+    },
+    "required_addon": {
+      "type": "string",
+      "doc": "CfgPatches addon that defines base_class; added to requiredAddons so it loads first."
+    },
+    "display_name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "slot": {
+      "type": "enum:Gloves",
+      "doc": "Inventory slot the item is worn in."
+    },
+    "grants": {
+      "type": "list:ref:abilities"
+    }
+  },
+  "rows": [
+    {
+      "id": "RDZ_WebShooters",
+      "hero": "spiderman",
+      "base_class": "SkiGloves_Red",
+      "required_addon": "DZ_Characters_Gloves",
+      "display_name": "Spider-Man's Web-Shooters",
+      "description": "Wear them to web-swing (X), crawl walls (jump at a wall), Get Over Here! (T) and Web-Cluster (B).",
+      "slot": "Gloves",
+      "grants": [
+        "spider_web_swing",
+        "spider_wall_crawl",
+        "spider_get_over_here",
+        "spider_web_cluster"
+      ],
+      "_source": {
+        "base_class": "DayZ-Script-Diff 1.29 4_world clothing: class SkiGloves_Red : SkiGloves_ColorBase"
+      },
+      "_unverified": {
+        "base_class": "Script class exists in 1.29; confirm the config class spawns and shows in the gloves slot in game.",
+        "required_addon": "Named by analogy with DZ_Characters_Tops used in Bohemia's Test_ClothingRetexture sample; confirm the mod loads without a missing-addon error."
+      }
+    },
+    {
+      "id": "RDZ_RogueGloves",
+      "hero": "rogue",
+      "base_class": "WorkingGloves_Yellow",
+      "required_addon": "DZ_Characters_Gloves",
+      "display_name": "Rogue's Gloves",
+      "description": "Wear them and your melee hits drain life into you. Area drain (X). Hit Spider-Man to steal his powers.",
+      "slot": "Gloves",
+      "grants": [
+        "rogue_power_absorption",
+        "rogue_area_drain",
+        "rogue_mimicry"
+      ],
+      "_source": {
+        "base_class": "DayZ-Script-Diff 1.29 4_world clothing: class WorkingGloves_Yellow extends WorkingGloves_ColorBase"
+      },
+      "_unverified": {
+        "base_class": "Script class exists in 1.29; confirm the config class spawns and shows in the gloves slot in game.",
+        "required_addon": "Named by analogy with DZ_Characters_Tops used in Bohemia's Test_ClothingRetexture sample; confirm the mod loads without a missing-addon error."
+      }
+    }
+  ]
+}

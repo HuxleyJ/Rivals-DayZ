@@ -1,0 +1,61 @@
+class CfgPatches
+{
+	class RivalsDayZ
+	{
+		units[] = {};
+		weapons[] = {};
+		requiredVersion = 0.1;
+		requiredAddons[] = {/*@REQUIRED_ADDONS@*/};
+		author = "Rivals x DayZ";
+		name = "Rivals x DayZ";
+	};
+};
+
+class CfgMods
+{
+	class RivalsDayZ
+	{
+		dir = "RivalsDayZ";
+		name = "Rivals x DayZ";
+		author = "Rivals x DayZ";
+		type = "mod";
+		inputs = "RivalsDayZ\data\inputs.xml";
+		dependencies[] = {"Game", "World", "Mission"};
+		class defs
+		{
+			class gameScriptModule
+			{
+				value = "";
+				files[] = {"RivalsDayZ/scripts/3_Game"};
+			};
+			class worldScriptModule
+			{
+				value = "";
+				files[] = {"RivalsDayZ/scripts/4_World"};
+			};
+			class missionScriptModule
+			{
+				value = "";
+				files[] = {"RivalsDayZ/scripts/5_Mission"};
+			};
+		};
+	};
+};
+
+class CfgVehicles
+{
+/*@CFGVEHICLES@*/
+};
+
+// Samples point at files the launcher converts from the player's own Marvel Rivals
+// install into <DayZ>\RivalsDayZ_Rivals\audio (loaded through -filePatching). Nothing
+// from Rivals is shipped in this mod.
+class CfgSoundShaders
+{
+/*@SOUNDSHADERS@*/
+};
+
+class CfgSoundSets
+{
+/*@SOUNDSETS@*/
+};

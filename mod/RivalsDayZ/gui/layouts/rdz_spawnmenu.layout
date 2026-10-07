@@ -1,0 +1,48 @@
+PanelWidgetClass RDZ_SpawnMenu
+{
+	visible 1
+	color 0 0 0 0.75
+	position 0 0
+	size 420 420
+	halign center_ref
+	valign center_ref
+	hexactpos 1
+	vexactpos 1
+	hexactsize 1
+	vexactsize 1
+	style rover_sim_colorable
+	{
+		TextWidgetClass Title
+		{
+			ignorepointer 1
+			position 0 12
+			size 1 34
+			hexactpos 1
+			vexactpos 1
+			hexactsize 0
+			vexactsize 1
+			text "Rivals x DayZ"
+			font "gui/fonts/Metron-Bold58"
+			"exact text" 1
+			"exact text size" 24
+			"text halign" center
+			"text valign" center
+		}
+		TextWidgetClass Hint
+		{
+			ignorepointer 1
+			position 0 370
+			size 1 30
+			hexactpos 1
+			vexactpos 1
+			hexactsize 0
+			vexactsize 1
+			text "Click a button. J or Esc closes."
+			font "gui/fonts/Metron"
+			"exact text" 1
+			"exact text size" 15
+			"text halign" center
+			"text valign" center
+		}
+	}
+}

@@ -1,0 +1,8 @@
+{
+  "_status": "Not in the recipe yet: hosting and joining have not been tested with two running copies. Add as recipe.multiplayer.connect only after that test passes.",
+  "connect": {
+    "address": { "log": "{localappdata}/RivalsDayZ/logs/latest.log", "after": "Hosting at " },
+    "hostEnv": { "RDZ_MODE": "host", "RDZ_PORT": "{port}" },
+    "joinEnv": { "RDZ_JOIN": "{address}" }
+  }
+}

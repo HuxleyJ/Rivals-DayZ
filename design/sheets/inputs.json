@@ -1,0 +1,25 @@
+{
+  "sheet": "inputs",
+  "purpose": "Keys the mashup listens to. kind=mod rows are registered in inputs.xml and appear in DayZ's Controls menu, so players can rebind them. kind=vanilla rows reuse DayZ's own controls.",
+  "columns": {
+    "id": {"type": "id"},
+    "kind": {"type": "enum:mod|vanilla"},
+    "ua_name": {"type": "string", "doc": "UA input name (mod rows) or the vanilla control used."},
+    "label": {"type": "string"},
+    "default_key": {"type": "string", "doc": "DayZ key name (kX etc.) or the vanilla control's own binding."}
+  },
+  "rows": [
+    {"id": "in_ability1", "kind": "mod", "ua_name": "UARDZAbility1", "label": "Rivals: Web-Swing / Area Drain", "default_key": "kX",
+     "_unverified": {"default_key": "Check for a clash with DayZ's default bindings in Controls on the PC."}},
+    {"id": "in_ability2", "kind": "mod", "ua_name": "UARDZAbility2", "label": "Rivals: Get Over Here!", "default_key": "kT",
+     "_unverified": {"default_key": "Check for a clash with DayZ's default bindings in Controls on the PC."}},
+    {"id": "in_ability3", "kind": "mod", "ua_name": "UARDZAbility3", "label": "Rivals: Web-Cluster", "default_key": "kB",
+     "_unverified": {"default_key": "Check for a clash with DayZ's default bindings in Controls on the PC."}},
+    {"id": "in_spawn_menu", "kind": "mod", "ua_name": "UARDZSpawnMenu", "label": "Rivals: Spawn menu", "default_key": "kJ",
+     "_unverified": {"default_key": "Check for a clash with DayZ's default bindings in Controls on the PC."}},
+    {"id": "in_jump", "kind": "vanilla", "ua_name": "HumanInputController.IsJumpClimb", "label": "Jump / vault (jump at a wall to stick to it)", "default_key": "vanilla jump",
+     "_source": {"ua_name": "DayZ-Script-Diff 1.29 dayzplayerimplement.c uses hic.IsJumpClimb() for vault/climb"}},
+    {"id": "in_melee", "kind": "vanilla", "ua_name": "melee attack (EEHitBy with DamageType.CLOSE_COMBAT)", "label": "Melee attack", "default_key": "vanilla melee",
+     "_source": {"ua_name": "DayZ-Script-Diff 1.29 EEHitBy signature in entityai.c / playerbase.c / zombiebase.c"}}
+  ]
+}

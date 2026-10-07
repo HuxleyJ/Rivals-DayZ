@@ -1,0 +1,34 @@
+{
+  "sheet": "movement",
+  "purpose": "Tuning for the scripted movement (web-swing, wall-crawl, web-zip, flight between swings). Each row becomes one constant in generated code.",
+  "columns": {
+    "id": {"type": "id"},
+    "value": {"type": "scalar"},
+    "unit": {"type": "string"},
+    "doc": {"type": "string"}
+  },
+  "rows": [
+    {"id": "SWING_GRAVITY", "value": 13.0, "unit": "m/s2", "doc": "Gravity while hanging from a web. A bit stronger than real so swings feel snappy."},
+    {"id": "SWING_PUMP_ACCEL", "value": 7.0, "unit": "m/s2", "doc": "Extra push along the swing while holding forward."},
+    {"id": "SWING_MAX_SPEED", "value": 32.0, "unit": "m/s", "doc": "Speed cap while swinging or flying."},
+    {"id": "SWING_MIN_ANCHOR_HEIGHT", "value": 3.0, "unit": "m", "doc": "A web must stick at least this far above the player."},
+    {"id": "SWING_REEL_SPEED", "value": 3.0, "unit": "m/s", "doc": "Web shortens this fast while the swing key is held."},
+    {"id": "SWING_RELEASE_UP", "value": 3.5, "unit": "m/s", "doc": "Upward kick when letting go of a web."},
+    {"id": "SWING_AUTO_AIM_UP_DEG", "value": 55.0, "unit": "deg", "doc": "If the aim ray misses, try again this many degrees above the look direction."},
+    {"id": "AIR_GRAVITY", "value": 11.0, "unit": "m/s2", "doc": "Gravity in flight between swings."},
+    {"id": "AIR_STEER_ACCEL", "value": 3.0, "unit": "m/s2", "doc": "Air control from the movement keys."},
+    {"id": "BODY_RADIUS", "value": 0.35, "unit": "m", "doc": "Collision radius used for the scripted movement raycasts."},
+    {"id": "CRAWL_MIN_WALL_HEIGHT", "value": 2.5, "unit": "m", "doc": "Walls lower than this are vaulted normally instead of crawled."},
+    {"id": "CRAWL_WALL_OFFSET", "value": 0.45, "unit": "m", "doc": "Distance kept between the body and the wall."},
+    {"id": "CRAWL_TILT_DEG", "value": 90.0, "unit": "deg", "doc": "Body pitch against the wall (90 = flat against it). 0 keeps the body upright."},
+    {"id": "CRAWL_JUMP_OFF_SPEED", "value": 7.0, "unit": "m/s", "doc": "Leap speed when jumping off a wall."},
+    {"id": "ZIP_ARRIVE_DIST", "value": 1.2, "unit": "m", "doc": "Web-zip ends this close to its target."},
+    {"id": "YANK_TIME", "value": 0.45, "unit": "s", "doc": "How long Get Over Here! takes to pull a target in."},
+    {"id": "ANIM_POSE_COMMAND", "value": "CMD_Swim", "unit": "anim graph command", "doc": "Pose used while swinging, flying and crawling.",
+     "_source": {"value": "BohemiaInteractive/DayZ-Samples Test_ScriptCmdSwim binds CMD_Swim from a HumanCommandScript"}},
+    {"id": "ANIM_SPEED_VAR", "value": "MovementSpeed", "unit": "anim graph variable", "doc": "Swim-stroke speed variable (0 idle .. 3 fast).",
+     "_source": {"value": "BohemiaInteractive/DayZ-Samples Test_ScriptCmdSwim binds MovementSpeed"}},
+    {"id": "ANIM_SWING_STROKE", "value": 0.0, "unit": "0..3", "doc": "Stroke speed while swinging (0 = still pose)."},
+    {"id": "ANIM_CRAWL_STROKE", "value": 2.0, "unit": "0..3", "doc": "Stroke speed while crawling and moving."}
+  ]
+}

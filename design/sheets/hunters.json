@@ -1,0 +1,37 @@
+{
+  "sheet": "hunters",
+  "purpose": "The AI heroes that hunt the player. Each is a DayZ infected body driven by mashup code that uses the hero's abilities and Rivals voice lines.",
+  "columns": {
+    "id": {"type": "id"},
+    "hero": {"type": "ref:heroes"},
+    "infected_classes": {"type": "list:string", "doc": "Infected config classes tried in order until one spawns."},
+    "health": {"type": "number"},
+    "behavior": {"type": "enum:swinger|brawler"},
+    "uses": {"type": "list:ref:abilities"},
+    "aggro_range_m": {"type": "number"},
+    "ability_interval_s": {"type": "number"},
+    "respawn_s": {"type": "number"},
+    "taunt": {"type": "ref:rivals_assets"},
+    "spawn": {"type": "ref:spawn_points"}
+  },
+  "rows": [
+    {
+      "id": "hunter_spiderman", "hero": "spiderman",
+      "infected_classes": ["ZmbM_JoggerSkinny_Red", "ZmbM_JoggerSkinny_Blue", "ZmbM_HikerSkinny_Blue"],
+      "health": 400, "behavior": "swinger",
+      "uses": ["spider_web_swing", "spider_web_cluster", "spider_get_over_here"],
+      "aggro_range_m": 120, "ability_interval_s": 3.5, "respawn_s": 60,
+      "taunt": "vo_spiderman_taunt", "spawn": "sp_hunter_near",
+      "_unverified": {"infected_classes": "Config class names are not in the script source; the spawner tries each and logs which one worked."}
+    },
+    {
+      "id": "hunter_rogue", "hero": "rogue",
+      "infected_classes": ["ZmbF_JoggerSkinny_Green", "ZmbF_HikerSkinny_Green", "ZmbF_JoggerSkinny_Red"],
+      "health": 450, "behavior": "brawler",
+      "uses": ["rogue_area_drain", "rogue_power_absorption", "rogue_mimicry"],
+      "aggro_range_m": 120, "ability_interval_s": 5, "respawn_s": 60,
+      "taunt": "vo_rogue_taunt", "spawn": "sp_hunter_near",
+      "_unverified": {"infected_classes": "Config class names are not in the script source; the spawner tries each and logs which one worked."}
+    }
+  ]
+}

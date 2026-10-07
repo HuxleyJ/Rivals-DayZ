@@ -1,0 +1,68 @@
+{
+  "sheet": "abilities",
+  "purpose": "Every hero power in the mashup. One row = one RDZ_AbilityDef in generated code. Numbers are DayZ-scale design values; the launcher reads each ability's real name and description from the player's Marvel Rivals install and shows them in game.",
+  "columns": {
+    "id": {"type": "id"},
+    "hero": {"type": "ref:heroes"},
+    "rivals_match": {"type": "string", "doc": "English ability name as it appears in Marvel Rivals; the launcher looks it up in the player's Rivals text files."},
+    "kind": {"type": "enum:swing|crawl|zip_yank|web_shot|drain_melee|area_drain|mimicry"},
+    "input": {"type": "ref:inputs"},
+    "power_bit": {"type": "int", "unique": true, "doc": "Bit in the player's synced power mask."},
+    "cooldown_s": {"type": "number", "allow_na": true},
+    "range_m": {"type": "number", "allow_na": true, "doc": "swing: max web length; crawl: wall detect distance; zip/web_shot: aim range; area_drain: radius."},
+    "damage": {"type": "number", "allow_na": true, "doc": "web_shot/zip_yank: hit damage; drain_melee: extra drain damage per hit; area_drain: damage per second."},
+    "duration_s": {"type": "number", "allow_na": true, "doc": "web_shot: time a target stays webbed; area_drain: drain time before the pull; mimicry: how long stolen powers last."},
+    "speed_mps": {"type": "number", "allow_na": true, "doc": "crawl: crawl speed; zip_yank: travel speed; area_drain: pull speed."},
+    "heal_pct": {"type": "number", "allow_na": true, "doc": "Percent of drained damage returned to Rogue as health."},
+    "stealable": {"type": "bool", "doc": "Rogue's Mimicry takes this power when she hits its owner."},
+    "number_source": {"type": "enum:design|rivals", "doc": "design = tuned for DayZ health scale; rivals = read from the player's Rivals files."},
+    "icon": {"type": "ref:rivals_assets"},
+    "sound": {"type": "ref:rivals_assets"}
+  },
+  "rows": [
+    {
+      "id": "spider_web_swing", "hero": "spiderman", "rivals_match": "Web-Swing", "kind": "swing", "input": "in_ability1", "power_bit": 1,
+      "cooldown_s": 0.35, "range_m": 45, "damage": "n/a", "duration_s": "n/a", "speed_mps": "n/a", "heal_pct": "n/a",
+      "stealable": true, "number_source": "design", "icon": "icon_spider_web_swing", "sound": "sfx_spider_web_swing",
+      "_source": {"rivals_match": "Gfinity Spider-Man guide: Web-Swing (Shift)"}
+    },
+    {
+      "id": "spider_wall_crawl", "hero": "spiderman", "rivals_match": "Wall Crawl", "kind": "crawl", "input": "in_jump", "power_bit": 2,
+      "cooldown_s": 0, "range_m": 1.4, "damage": "n/a", "duration_s": "n/a", "speed_mps": 2.6, "heal_pct": "n/a",
+      "stealable": true, "number_source": "design", "icon": "icon_spider_wall_crawl", "sound": "sfx_spider_wall_crawl",
+      "_source": {"rivals_match": "Gfinity Spider-Man guide: Wall Crawl (passive)"}
+    },
+    {
+      "id": "spider_get_over_here", "hero": "spiderman", "rivals_match": "Get Over Here!", "kind": "zip_yank", "input": "in_ability2", "power_bit": 4,
+      "cooldown_s": 6, "range_m": 30, "damage": 15, "duration_s": "n/a", "speed_mps": 28, "heal_pct": "n/a",
+      "stealable": true, "number_source": "design", "icon": "icon_spider_get_over_here", "sound": "sfx_spider_get_over_here",
+      "_source": {"rivals_match": "Gfinity Spider-Man guide: Get Over Here! (E)"}
+    },
+    {
+      "id": "spider_web_cluster", "hero": "spiderman", "rivals_match": "Web-Cluster", "kind": "web_shot", "input": "in_ability3", "power_bit": 8,
+      "cooldown_s": 1.2, "range_m": 35, "damage": 12, "duration_s": 3, "speed_mps": "n/a", "heal_pct": "n/a",
+      "stealable": true, "number_source": "design", "icon": "icon_spider_web_cluster", "sound": "sfx_spider_web_cluster",
+      "_source": {"rivals_match": "Gfinity Spider-Man guide: Web-Cluster (left-click); MarvelRivals.gg calls it Cyber-Web Cluster"}
+    },
+    {
+      "id": "rogue_power_absorption", "hero": "rogue", "rivals_match": "Power Absorption", "kind": "drain_melee", "input": "in_melee", "power_bit": 16,
+      "cooldown_s": 0, "range_m": "n/a", "damage": 8, "duration_s": "n/a", "speed_mps": "n/a", "heal_pct": 60,
+      "stealable": false, "number_source": "design", "icon": "icon_rogue_power_absorption", "sound": "sfx_rogue_power_absorption",
+      "_source": {"rivals_match": "Fragster Rogue kit breakdown: Power Absorption"}
+    },
+    {
+      "id": "rogue_area_drain", "hero": "rogue", "rivals_match": "Drain", "kind": "area_drain", "input": "in_ability1", "power_bit": 32,
+      "cooldown_s": 12, "range_m": 6, "damage": 6, "duration_s": 3, "speed_mps": 7, "heal_pct": 50,
+      "stealable": false, "number_source": "design", "icon": "icon_rogue_area_drain", "sound": "sfx_rogue_area_drain",
+      "_source": {"rivals_match": "Fragster/Gosugamers: F skill damages enemies around her over time, then pulls them in"},
+      "_unverified": {"rivals_match": "The F skill's exact in-game name is not confirmed; the launcher's text dump from your Rivals install will show it."}
+    },
+    {
+      "id": "rogue_mimicry", "hero": "rogue", "rivals_match": "Mimicry", "kind": "mimicry", "input": "in_melee", "power_bit": 64,
+      "cooldown_s": 3, "range_m": "n/a", "damage": "n/a", "duration_s": 20, "speed_mps": "n/a", "heal_pct": "n/a",
+      "stealable": false, "number_source": "design", "icon": "icon_rogue_mimicry", "sound": "sfx_rogue_mimicry",
+      "_source": {"rivals_match": "Fragster Rogue kit breakdown: Mimicry copies an absorbed hero's ability"},
+      "_unverified": {"rivals_match": "Confirm the ability's in-game name from the Rivals text dump."}
+    }
+  ]
+}

@@ -1,0 +1,352 @@
+{
+  "sheet": "rivals_assets",
+  "purpose": "Content read from the player's own Marvel Rivals install by the launcher at Play and written under the DayZ folder (never shipped). Keywords pick candidate files; the discovery report lists what matched so the rows can be checked.",
+  "columns": {
+    "id": {
+      "type": "id"
+    },
+    "kind": {
+      "type": "enum:image|audio"
+    },
+    "hero": {
+      "type": "ref:heroes"
+    },
+    "keywords": {
+      "type": "list:string",
+      "doc": "All must appear (case-insensitive) in the Rivals file path."
+    },
+    "output": {
+      "type": "string",
+      "doc": "Path under the DayZ folder, without extension, as referenced from config and scripts."
+    },
+    "format": {
+      "type": "enum:paa|ogg"
+    },
+    "fallback": {
+      "type": "string"
+    }
+  },
+  "rows": [
+    {
+      "id": "img_spiderman_portrait",
+      "kind": "image",
+      "hero": "spiderman",
+      "keywords": [
+        "1036",
+        "spider",
+        "portrait"
+      ],
+      "output": "RivalsDayZ_Rivals\\ui\\spiderman_portrait",
+      "format": "paa",
+      "fallback": "HUD shows the hero colour block instead",
+      "_unverified": {
+        "keywords": "Marvel Rivals texture paths are not known until the launcher's discovery report runs on a PC with Rivals installed; reading textures may also need a .usmap mappings file. 1036 is Spider-Man's hero id in community datamines (from memory); confirm in the discovery report."
+      }
+    },
+    {
+      "id": "img_rogue_portrait",
+      "kind": "image",
+      "hero": "rogue",
+      "keywords": [
+        "rogue",
+        "portrait"
+      ],
+      "output": "RivalsDayZ_Rivals\\ui\\rogue_portrait",
+      "format": "paa",
+      "fallback": "HUD shows the hero colour block instead",
+      "_unverified": {
+        "keywords": "Marvel Rivals texture paths are not known until the launcher's discovery report runs on a PC with Rivals installed; reading textures may also need a .usmap mappings file."
+      }
+    },
+    {
+      "id": "icon_spider_web_swing",
+      "kind": "image",
+      "hero": "spiderman",
+      "keywords": [
+        "1036",
+        "swing",
+        "icon"
+      ],
+      "output": "RivalsDayZ_Rivals\\ui\\spider_web_swing",
+      "format": "paa",
+      "fallback": "HUD shows the hero colour block instead",
+      "_unverified": {
+        "keywords": "Marvel Rivals texture paths are not known until the launcher's discovery report runs on a PC with Rivals installed; reading textures may also need a .usmap mappings file. 1036 is Spider-Man's hero id in community datamines (from memory); confirm in the discovery report."
+      }
+    },
+    {
+      "id": "icon_spider_wall_crawl",
+      "kind": "image",
+      "hero": "spiderman",
+      "keywords": [
+        "1036",
+        "wall",
+        "icon"
+      ],
+      "output": "RivalsDayZ_Rivals\\ui\\spider_wall_crawl",
+      "format": "paa",
+      "fallback": "HUD shows the hero colour block instead",
+      "_unverified": {
+        "keywords": "Marvel Rivals texture paths are not known until the launcher's discovery report runs on a PC with Rivals installed; reading textures may also need a .usmap mappings file. 1036 is Spider-Man's hero id in community datamines (from memory); confirm in the discovery report."
+      }
+    },
+    {
+      "id": "icon_spider_get_over_here",
+      "kind": "image",
+      "hero": "spiderman",
+      "keywords": [
+        "1036",
+        "pull",
+        "icon"
+      ],
+      "output": "RivalsDayZ_Rivals\\ui\\spider_get_over_here",
+      "format": "paa",
+      "fallback": "HUD shows the hero colour block instead",
+      "_unverified": {
+        "keywords": "Marvel Rivals texture paths are not known until the launcher's discovery report runs on a PC with Rivals installed; reading textures may also need a .usmap mappings file. 1036 is Spider-Man's hero id in community datamines (from memory); confirm in the discovery report."
+      }
+    },
+    {
+      "id": "icon_spider_web_cluster",
+      "kind": "image",
+      "hero": "spiderman",
+      "keywords": [
+        "1036",
+        "web",
+        "cluster",
+        "icon"
+      ],
+      "output": "RivalsDayZ_Rivals\\ui\\spider_web_cluster",
+      "format": "paa",
+      "fallback": "HUD shows the hero colour block instead",
+      "_unverified": {
+        "keywords": "Marvel Rivals texture paths are not known until the launcher's discovery report runs on a PC with Rivals installed; reading textures may also need a .usmap mappings file. 1036 is Spider-Man's hero id in community datamines (from memory); confirm in the discovery report."
+      }
+    },
+    {
+      "id": "icon_rogue_power_absorption",
+      "kind": "image",
+      "hero": "rogue",
+      "keywords": [
+        "rogue",
+        "absorb",
+        "icon"
+      ],
+      "output": "RivalsDayZ_Rivals\\ui\\rogue_power_absorption",
+      "format": "paa",
+      "fallback": "HUD shows the hero colour block instead",
+      "_unverified": {
+        "keywords": "Marvel Rivals texture paths are not known until the launcher's discovery report runs on a PC with Rivals installed; reading textures may also need a .usmap mappings file."
+      }
+    },
+    {
+      "id": "icon_rogue_area_drain",
+      "kind": "image",
+      "hero": "rogue",
+      "keywords": [
+        "rogue",
+        "drain",
+        "icon"
+      ],
+      "output": "RivalsDayZ_Rivals\\ui\\rogue_area_drain",
+      "format": "paa",
+      "fallback": "HUD shows the hero colour block instead",
+      "_unverified": {
+        "keywords": "Marvel Rivals texture paths are not known until the launcher's discovery report runs on a PC with Rivals installed; reading textures may also need a .usmap mappings file."
+      }
+    },
+    {
+      "id": "icon_rogue_mimicry",
+      "kind": "image",
+      "hero": "rogue",
+      "keywords": [
+        "rogue",
+        "mimic",
+        "icon"
+      ],
+      "output": "RivalsDayZ_Rivals\\ui\\rogue_mimicry",
+      "format": "paa",
+      "fallback": "HUD shows the hero colour block instead",
+      "_unverified": {
+        "keywords": "Marvel Rivals texture paths are not known until the launcher's discovery report runs on a PC with Rivals installed; reading textures may also need a .usmap mappings file."
+      }
+    },
+    {
+      "id": "sfx_spider_web_swing",
+      "kind": "audio",
+      "hero": "spiderman",
+      "keywords": [
+        "1036",
+        "swing",
+        "sfx"
+      ],
+      "output": "RivalsDayZ_Rivals\\audio\\spider_web_swing",
+      "format": "ogg",
+      "fallback": "silent",
+      "_unverified": {
+        "keywords": "Marvel Rivals audio paths are not known until the launcher's discovery report runs on a PC with Rivals installed. 1036 is Spider-Man's hero id in community datamines (from memory); confirm in the discovery report."
+      }
+    },
+    {
+      "id": "sfx_spider_wall_crawl",
+      "kind": "audio",
+      "hero": "spiderman",
+      "keywords": [
+        "1036",
+        "wall",
+        "sfx"
+      ],
+      "output": "RivalsDayZ_Rivals\\audio\\spider_wall_crawl",
+      "format": "ogg",
+      "fallback": "silent",
+      "_unverified": {
+        "keywords": "Marvel Rivals audio paths are not known until the launcher's discovery report runs on a PC with Rivals installed. 1036 is Spider-Man's hero id in community datamines (from memory); confirm in the discovery report."
+      }
+    },
+    {
+      "id": "sfx_spider_get_over_here",
+      "kind": "audio",
+      "hero": "spiderman",
+      "keywords": [
+        "1036",
+        "pull",
+        "sfx"
+      ],
+      "output": "RivalsDayZ_Rivals\\audio\\spider_get_over_here",
+      "format": "ogg",
+      "fallback": "silent",
+      "_unverified": {
+        "keywords": "Marvel Rivals audio paths are not known until the launcher's discovery report runs on a PC with Rivals installed. 1036 is Spider-Man's hero id in community datamines (from memory); confirm in the discovery report."
+      }
+    },
+    {
+      "id": "sfx_spider_web_cluster",
+      "kind": "audio",
+      "hero": "spiderman",
+      "keywords": [
+        "1036",
+        "web",
+        "cluster",
+        "sfx"
+      ],
+      "output": "RivalsDayZ_Rivals\\audio\\spider_web_cluster",
+      "format": "ogg",
+      "fallback": "silent",
+      "_unverified": {
+        "keywords": "Marvel Rivals audio paths are not known until the launcher's discovery report runs on a PC with Rivals installed. 1036 is Spider-Man's hero id in community datamines (from memory); confirm in the discovery report."
+      }
+    },
+    {
+      "id": "sfx_rogue_power_absorption",
+      "kind": "audio",
+      "hero": "rogue",
+      "keywords": [
+        "rogue",
+        "absorb",
+        "sfx"
+      ],
+      "output": "RivalsDayZ_Rivals\\audio\\rogue_power_absorption",
+      "format": "ogg",
+      "fallback": "silent",
+      "_unverified": {
+        "keywords": "Marvel Rivals audio paths are not known until the launcher's discovery report runs on a PC with Rivals installed."
+      }
+    },
+    {
+      "id": "sfx_rogue_area_drain",
+      "kind": "audio",
+      "hero": "rogue",
+      "keywords": [
+        "rogue",
+        "drain",
+        "sfx"
+      ],
+      "output": "RivalsDayZ_Rivals\\audio\\rogue_area_drain",
+      "format": "ogg",
+      "fallback": "silent",
+      "_unverified": {
+        "keywords": "Marvel Rivals audio paths are not known until the launcher's discovery report runs on a PC with Rivals installed."
+      }
+    },
+    {
+      "id": "sfx_rogue_mimicry",
+      "kind": "audio",
+      "hero": "rogue",
+      "keywords": [
+        "rogue",
+        "mimic",
+        "sfx"
+      ],
+      "output": "RivalsDayZ_Rivals\\audio\\rogue_mimicry",
+      "format": "ogg",
+      "fallback": "silent",
+      "_unverified": {
+        "keywords": "Marvel Rivals audio paths are not known until the launcher's discovery report runs on a PC with Rivals installed."
+      }
+    },
+    {
+      "id": "vo_spiderman_spawn",
+      "kind": "audio",
+      "hero": "spiderman",
+      "keywords": [
+        "1036",
+        "vo",
+        "select"
+      ],
+      "output": "RivalsDayZ_Rivals\\audio\\spiderman_spawn",
+      "format": "ogg",
+      "fallback": "silent",
+      "_unverified": {
+        "keywords": "Marvel Rivals audio paths are not known until the launcher's discovery report runs on a PC with Rivals installed. 1036 is Spider-Man's hero id in community datamines (from memory); confirm in the discovery report."
+      }
+    },
+    {
+      "id": "vo_spiderman_taunt",
+      "kind": "audio",
+      "hero": "spiderman",
+      "keywords": [
+        "1036",
+        "vo",
+        "kill"
+      ],
+      "output": "RivalsDayZ_Rivals\\audio\\spiderman_taunt",
+      "format": "ogg",
+      "fallback": "silent",
+      "_unverified": {
+        "keywords": "Marvel Rivals audio paths are not known until the launcher's discovery report runs on a PC with Rivals installed. 1036 is Spider-Man's hero id in community datamines (from memory); confirm in the discovery report."
+      }
+    },
+    {
+      "id": "vo_rogue_spawn",
+      "kind": "audio",
+      "hero": "rogue",
+      "keywords": [
+        "rogue",
+        "vo",
+        "select"
+      ],
+      "output": "RivalsDayZ_Rivals\\audio\\rogue_spawn",
+      "format": "ogg",
+      "fallback": "silent",
+      "_unverified": {
+        "keywords": "Marvel Rivals audio paths are not known until the launcher's discovery report runs on a PC with Rivals installed."
+      }
+    },
+    {
+      "id": "vo_rogue_taunt",
+      "kind": "audio",
+      "hero": "rogue",
+      "keywords": [
+        "rogue",
+        "vo",
+        "kill"
+      ],
+      "output": "RivalsDayZ_Rivals\\audio\\rogue_taunt",
+      "format": "ogg",
+      "fallback": "silent",
+      "_unverified": {
+        "keywords": "Marvel Rivals audio paths are not known until the launcher's discovery report runs on a PC with Rivals installed."
+      }
+    }
+  ]
+}
